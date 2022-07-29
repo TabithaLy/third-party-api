@@ -26,7 +26,7 @@ var hour = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two
 var textarea = document.createElement("textarea"); textarea.setAttribute('type', 'text'); 
 
 // for loop through time appending rows
-for (var i = 0; 0 === hour.length; i){
+for (var i = 0; i === hour.length; i){
         jumbotron.append(row);
     for (var i = 1; i < hour.length; i++) {
         row.append(row);        
