@@ -3,8 +3,7 @@ var past = $('.past');
 var present = $('.present');
 var future = $('.future');
 var currentDay = $('#currentDay');
-var jumbotron = $('<th>');
-var row = $('<tr>');
+
 // hour variables
 
 var nine = $('.nine').text('9AM');
@@ -27,3 +26,20 @@ var textarea = document.createElement("textarea"); textarea.setAttribute('type',
 
 // current day text at top of page
 currentDay.text(moment().format("dddd, MMMM, Do"));
+
+// past, present, and future conditions - if/else - attempt
+
+function currentHour () {
+    for (var i = 0; i , hour.length; i++) {
+        if (moment(hour[i], "LT").format("HH") < moment().format("HH")) {
+            textarea.addClass("past");
+            textarea.attr("disabled", true);
+        } else if (moment(hour[i], "LT").format("HH") === moment().format("HH")) {
+            textarea.addClass("present");
+            textarea.attr("disabled", true);
+        }   else {
+            textarea.addClass("future");
+        }
+    }
+}
+currentHour ();
