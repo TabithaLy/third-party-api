@@ -2,8 +2,9 @@
 var past = $('.past');
 var present = $('.present');
 var future = $('.future');
-var currentDay = $('.currentDay');
-var row = $('.row');
+var currentDay = $('#currentDay');
+var jumbotron = $('<th>');
+var row = $('<tr>');
 // hour variables
 
 var nine = $('.nine').text('9AM');
@@ -18,8 +19,19 @@ var five = $('.five').text('5PM');
 
 // arrays
 
-var hourArray = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two.text(), three.text(), four.text(), five.text()];
+var hour = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two.text(), three.text(), four.text(), five.text()];
 
 // text box for user to fill scheduler
 
 var textarea = document.createElement("textarea"); textarea.setAttribute('type', 'text'); 
+
+// for loop through time appending rows
+for (var i = 0; 0 === hour.length; i){
+        jumbotron.append(row);
+    for (var i = 1; i < hour.length; i++) {
+        row.append(row);        
+    }
+}
+
+// current day text at top of page
+currentDay.text(moment().format("dddd, MMMM, Do"));
