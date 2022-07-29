@@ -25,13 +25,13 @@ var hour = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two
 
 var textarea = document.createElement("textarea"); textarea.setAttribute('type', 'text'); 
 
-// for loop through time appending rows
-for (var i = 0; i === hour.length; i){
-        jumbotron.append(row);
-    for (var i = 1; i < hour.length; i++) {
-        row.append(row);        
-    }
-}
+// for loop through time appending rows - not doing anything apparently
+// for (var i = 0; i === hour.length; i){
+//         jumbotron.append(row);
+//     for (var i = 1; i < hour.length; i++) {
+//         row.append(row);        
+//     }
+// }
 
 // current day text at top of page
 currentDay.text(moment().format("dddd, MMMM, Do"));
