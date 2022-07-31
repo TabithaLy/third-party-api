@@ -31,23 +31,25 @@ $(".saveBtn").on("click", function () {
     var userEntry = $(this).siblings("input").val();
     var saveHour = $(this).siblings("div").text();
     console.log(userEntry, saveHour);
+    localStorage.setItem(saveHour, userEntry);
 })
 
 
 
 // past, present, and future conditions - if/else - attempt
 
-// function currentHour () {
-//     for (var i = 0; i , hour.length; i++) {
-//         if (moment(hour[i], "LT").format("HH") < moment().format("HH")) {
-//             textarea.addClass("past");
-//             textarea.attr("disabled", true);
-//         } else if (moment(hour[i], "LT").format("HH") === moment().format("HH")) {
-//             textarea.addClass("present");
-//             textarea.attr("disabled", true);
-//         }   else {
-//             textarea.addClass("future");
-//         }
-//     }
-// }
-// currentHour ();
+function currentHour () {
+    for (var i = 9; i < 18; i++) {
+        var timeBlock = ""
+        if (i > 12 ) {
+           timeBlock =( i - 12)+"PM";
+        } else if (i === 12)  {
+            timeBlock = 12+"PM";
+        } else {
+            timeBlock = i+"AM";
+        }
+        var retrieveLocal = localStorage.getItem(timeBlock);
+        console.log(timeBlock, retrieveLocal);
+    }
+}
+currentHour ();
