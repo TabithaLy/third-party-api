@@ -20,13 +20,10 @@ var five = $('.five').text('5PM');
 
 var hour = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two.text(), three.text(), four.text(), five.text()];
 
-// text box for user to fill scheduler
-
-// var textarea = $("textarea")
 // current day text at top of page
 currentDay.text(moment().format("dddd, MMMM, Do"));
 
-// Local storage
+// Local storage - help from tutor Sangeetha Kaliaperumal
 $(".saveBtn").on("click", function () {
     var userEntry = $(this).siblings("input").val();
     var saveHour = $(this).siblings("div").text();
@@ -36,8 +33,9 @@ $(".saveBtn").on("click", function () {
 
 
 
-// past, present, and future conditions - if/else - attempt
-
+// past, present, and future conditions - if/else - attempt - fixed with tutor
+var currentMilitaryHour = moment().hour();
+console.log(currentMilitaryHour)
 function currentHour () {
     for (var i = 9; i < 18; i++) {
         var timeBlock = ""
@@ -51,6 +49,13 @@ function currentHour () {
         var retrieveLocal = localStorage.getItem(timeBlock);
         $("#" + i).val(retrieveLocal);
         console.log(timeBlock, retrieveLocal);
+        if (i < currentMilitaryHour) {
+            $("#" + i).addClass("past");
+        } else if (i === currentMilitaryHour) {
+            $("#" + i).addClass("present");
+        } else {
+            $("#" + i).addClass("future");
+        }
     }
 }
 currentHour ();
