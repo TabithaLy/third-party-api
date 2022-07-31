@@ -22,24 +22,32 @@ var hour = [nine.text(), ten.text(), eleven.text(), noon.text(), one.text(), two
 
 // text box for user to fill scheduler
 
-var textarea = document.createElement("textarea"); textarea.setAttribute('type', 'text'); 
-
+// var textarea = $("textarea")
 // current day text at top of page
 currentDay.text(moment().format("dddd, MMMM, Do"));
 
+// Local storage
+$(".saveBtn").on("click", function () {
+    var userEntry = $(this).siblings("input").val();
+    var saveHour = $(this).siblings("div").text();
+    console.log(userEntry, saveHour);
+})
+
+
+
 // past, present, and future conditions - if/else - attempt
 
-function currentHour () {
-    for (var i = 0; i , hour.length; i++) {
-        if (moment(hour[i], "LT").format("HH") < moment().format("HH")) {
-            textarea.addClass("past");
-            textarea.attr("disabled", true);
-        } else if (moment(hour[i], "LT").format("HH") === moment().format("HH")) {
-            textarea.addClass("present");
-            textarea.attr("disabled", true);
-        }   else {
-            textarea.addClass("future");
-        }
-    }
-}
-currentHour ();
+// function currentHour () {
+//     for (var i = 0; i , hour.length; i++) {
+//         if (moment(hour[i], "LT").format("HH") < moment().format("HH")) {
+//             textarea.addClass("past");
+//             textarea.attr("disabled", true);
+//         } else if (moment(hour[i], "LT").format("HH") === moment().format("HH")) {
+//             textarea.addClass("present");
+//             textarea.attr("disabled", true);
+//         }   else {
+//             textarea.addClass("future");
+//         }
+//     }
+// }
+// currentHour ();
