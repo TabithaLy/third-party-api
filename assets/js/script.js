@@ -49,6 +49,7 @@ function currentHour () {
             timeBlock = i+"AM";
         }
         var retrieveLocal = localStorage.getItem(timeBlock);
+        $("#" + i).val(retrieveLocal);
         console.log(timeBlock, retrieveLocal);
     }
 }
